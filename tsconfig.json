@@ -1,0 +1,10 @@
+﻿{
+  "compilerOptions": {
+    "target": "es6",
+    "declaration": true,
+    "newLine": "LF",
+    "noResolve": true,
+    "outDir": "build",
+    "rootDir": "."
+  }
+}

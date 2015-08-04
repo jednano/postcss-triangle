@@ -1,0 +1,50 @@
+{
+  "name": "postcss-triangle",
+  "version": "0.0.1",
+  "description": "PostCSS plugin to create a direction-facing triangle.",
+  "main": "dist/plugin.js",
+  "scripts": {
+    "prepublish": "gulp && gulp copy && npm run babelify",
+    "babelify": "babel build/lib --out-dir dist",
+    "test": "gulp && npm run mocha && npm run check-coverage",
+    "mocha": "babel-node node_modules/isparta/bin/isparta cover node_modules/mocha/bin/_mocha -- build/test",
+    "check-coverage": "istanbul check-coverage --statements 100 --functions 100 --branches 100 --lines 100",
+    "watch": "sh scripts/watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jedmao/postcss-triangle.git"
+  },
+  "keywords": [
+    "postcss",
+    "postcss-plugin",
+    "triangle"
+  ],
+  "author": "Jed Mao <jedmao@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jedmao/postcss-triangle/issues"
+  },
+  "homepage": "https://github.com/jedmao/postcss-triangle#readme",
+  "dependencies": {
+    "postcss": "^4.1.16"
+  },
+  "devDependencies": {
+    "babel": "^5.8.5",
+    "babel-core": "^5.8.20",
+    "babel-eslint": "^4.0.5",
+    "chai": "^3.2.0",
+    "del": "^1.2.0",
+    "eslint": "^1.0.0",
+    "event-stream": "^3.3.1",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-filter": "^3.0.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-tslint": "^3.1.2",
+    "gulp-typescript": "^2.8.0",
+    "isparta": "^3.0.3",
+    "istanbul": "^0.3.17",
+    "mocha": "^2.2.5"
+  }
+}
