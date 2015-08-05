@@ -8,7 +8,7 @@ import Result from './result';
 import Rule from './rule';
 import Root from './root';
 import RSVP from 'es6-promise';
-declare function postcss(plugins?: (postcss.Plugin | postcss.Transformer | Processor)[]): Processor;
+declare function postcss(plugins?: (postcss.Plugin<any> | postcss.Transformer | Processor)[]): Processor;
 declare module postcss {
     /**
      *
@@ -17,9 +17,9 @@ declare module postcss {
      * @param initializer Will receive plugin options and should return functions
      * to modify nodes in input CSS.
      */
-    function plugin(name: string, initializer: PluginInitializer): Plugin;
-    interface Plugin {
-        (): Transformer;
+    function plugin<T>(name: string, initializer: PluginInitializer<T>): Plugin<T>;
+    interface Plugin<T> {
+        (options?: T): Transformer;
         postcss: Transformer;
     }
     interface Transformer {
@@ -27,8 +27,8 @@ declare module postcss {
         postcssPlugin?: string;
         postcssVersion?: string;
     }
-    interface PluginInitializer {
-        (pluginOptions?: any): Transformer;
+    interface PluginInitializer<T> {
+        (pluginOptions?: T): Transformer;
     }
     var vendor: {
         prefix(prop: any): any;

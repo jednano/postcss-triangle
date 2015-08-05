@@ -6,16 +6,16 @@ declare class Processor {
     /**
      * Contains plugins added to this processor.
      */
-    plugins: postcss.Plugin[];
+    plugins: postcss.Plugin<any>[];
     /**
      * A Processor instance contains plugins to process CSS. Create one Processor
      * instance, initialize its plugins, and then use that instance on many CSS files.
      */
-    constructor(plugins?: (postcss.Plugin | postcss.Transformer | Processor)[]);
+    constructor(plugins?: (postcss.Plugin<any> | postcss.Transformer | Processor)[]);
     /**
      * Adds a plugin to be used as a CSS processor. Plugins can also be added by
      */
-    use(plugin: postcss.Plugin | postcss.Transformer | Processor): Processor;
+    use<T>(plugin: postcss.Plugin<T> | postcss.Transformer | Processor): Processor;
     /**
      * Parses source CSS and returns LazyResult instance. Because some plugins can
      * be asynchronous it doesn't make any transformations. Transformations will be
