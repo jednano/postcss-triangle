@@ -51,15 +51,7 @@ Now, on to the triangle types!
 
 #### Isosceles
 
-<figure style="float:right;margin-left:50px;">
-	<img
-		src="https://github.com/jedmao/postcss-triangle/blob/master/images/isosceles-triangle.png?raw=true"
-		alt="Isosceles Triangle (Default)"
-		width="184"
-		height="146"
-	>
-	<figcaption>Isosceles Triangle (default)</figcaption>
-</figure>
+<img src="https://github.com/jedmao/postcss-triangle/blob/master/images/isosceles-triangle.png?raw=true" alt="Isosceles Triangle (Default)" width="184" height="146" align="right">
 
 This is the default and the most standard triangle you will create. It has two angles the same and two sides the same. The triangle will fit snug inside the `width` and `height` box that you define. Here's how you create one:
 
@@ -73,19 +65,6 @@ This is the default and the most standard triangle you will create. It has two a
 ```
 
 This transpiles into:
-
-<div class="isosceles-triangle"></div>
-<style>
-.isosceles-triangle {
-	float: right;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-color: transparent;
-	border-width: 57.5px 0 57.5px 150px;
-	border-left-color: red;
-}
-</style>
 
 ```css
 .isosceles-triangle {
@@ -105,15 +84,7 @@ The isosceles triangle has the following rules/caveats:
 
 #### [Right-Isosceles](http://mathworld.wolfram.com/IsoscelesRightTriangle.html)
 
-<figure style="float:right;margin-left:50px;">
-	<img
-		src="https://github.com/jedmao/postcss-triangle/blob/master/images/right-isosceles-triangle.png?raw=true"
-		alt="Right-Isosceles Triangle"
-		width="250"
-		height="125"
-	>
-	<figcaption>Right-Isosceles Triangle</figcaption>
-</figure>
+<img src="https://github.com/jedmao/postcss-triangle/blob/master/images/right-isosceles-triangle.png?raw=true" alt="Right-Isosceles Triangle" width="250" height="125" align="right">
 
 This triangle has two 45&deg; angles and one 90&deg; angle. The 90&deg; angle is the direction the triangle points. This is great if you want to render a triangle with the sharpest edge possible, because it follows the pixels on your screen exactly, without any additional anti-aliasing.
 
@@ -130,19 +101,6 @@ Here's how you create one:
 ```
 
 This transpiles into:
-
-<div class="right-isosceles-triangle"></div>
-<style>
-.right-isosceles-triangle {
-	float: right;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-color: transparent;
-	border-width: 125px 125px 0;
-	border-top-color: red;
-}
-</style>
 
 ```css
 .right-isosceles-triangle {
@@ -163,15 +121,7 @@ The right-isosceles triangle has the following rules/caveats:
 
 #### [Equilateral](https://en.wikipedia.org/wiki/Equilateral_triangle)
 
-<figure style="float:right;margin-left:50px;">
-	<img
-		src="https://github.com/jedmao/postcss-triangle/blob/master/images/equilateral-triangle.png?raw=true"
-		alt="Equilateral Triangle"
-		width="200"
-		height="181"
-	>
-	<figcaption>Equilateral Triangle</figcaption>
-</figure>
+<img src="https://github.com/jedmao/postcss-triangle/blob/master/images/equilateral-triangle.png?raw=true" alt="Equilateral Triangle" width="200" height="181" align="right">
 
 This triangle's angles are all the same (60&deg;). This means all sides are the same length as well. Here's how you create one:
 
@@ -184,19 +134,6 @@ This triangle's angles are all the same (60&deg;). This means all sides are the 
 ```
 
 This transpiles into:
-
-<div class="equilateral-triangle"></div>
-<style>
-.equilateral-triangle {
-	float: right;
-	width: 0;
-	height: 0;
-	border-style: solid;
-	border-color: transparent;
-	border-width: 0 57.73503px 100px;
-	border-top-color: red;
-}
-</style>
 
 ```css
 .equilateral-triangle {
