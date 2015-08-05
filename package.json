@@ -1,7 +1,7 @@
 {
   "name": "postcss-triangle",
   "version": "0.0.1",
-  "description": "PostCSS plugin to create a direction-facing triangle.",
+  "description": "PostCSS plugin to create a triangle.",
   "main": "dist/plugin.js",
   "scripts": {
     "prepublish": "gulp && gulp copy && npm run babelify",

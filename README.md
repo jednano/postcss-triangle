@@ -11,7 +11,7 @@
 
 [![npm](https://nodei.co/npm/postcss-triangle.svg?downloads=true)](https://nodei.co/npm/postcss-triangle/)
 
-[PostCSS](https://github.com/postcss/postcss) plugin to create a direction-facing triangle.
+[PostCSS](https://github.com/postcss/postcss) plugin to create a triangle.
 
 ## Introduction
 
