@@ -77,6 +77,8 @@ This transpiles into:
 }
 ```
 
+[See it on CodePen!](http://codepen.io/jedmao/details/yNZJxE/)
+
 This creates a triangle with `width: 150px; height: 115px;` and pointing right.
 
 The isosceles triangle has the following rules/caveats:
@@ -113,6 +115,8 @@ This transpiles into:
 }
 ```
 
+[See it on CodePen!](http://codepen.io/jedmao/details/gpqMZg/)
+
 This creates a triangle with `width: 250px; height: 125px;` and pointing down.
 
 The right-isosceles triangle has the following rules/caveats:
@@ -145,6 +149,8 @@ This transpiles into:
 	border-bottom-color: red;
 }
 ```
+
+[See it on CodePen!](http://codepen.io/jedmao/details/waNWRq/)
 
 This creates a triangle with `width: 115.47006px; height: 100px;` and pointing up.
 
