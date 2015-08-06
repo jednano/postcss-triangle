@@ -1,7 +1,7 @@
 import CssSyntaxError from './css-syntax-error';
 import Container from './container';
-import Input from './Input';
-import Root from './Root';
+import Input from './input';
+import Root from './root';
 export interface Position {
     line: number;
     column: number;

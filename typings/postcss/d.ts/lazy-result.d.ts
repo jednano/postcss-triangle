@@ -2,7 +2,6 @@ import Result from './result';
 import postcss from './postcss';
 import Processor from './processor';
 import Root from './root';
-import RSVP from 'es6-promise';
 export default class LazyResult {
     private stringified;
     private processed;
@@ -13,7 +12,7 @@ export default class LazyResult {
     /**
      * Promise proxy for result of PostCSS transformations.
      */
-    constructor(processor: Processor, 
+    constructor(processor: Processor,
         /**
          * String with input CSS or any object with toString() method, like file stream.
          * Optionally, send Result instance and the processor will take the existing
@@ -116,12 +115,12 @@ export default class LazyResult {
      * onFulfilled with Result instance. If a plugin throws an error, onRejected
      * callback will be executed.
      */
-    then(onFulfilled: any, onRejected: any): RSVP.Promise<{}>;
+    then(onFulfilled: any, onRejected: any): any;
     /**
      * Processes input CSS through synchronous and asynchronous plugins and call
      * onRejected on errors from any plugin.
      */
-    catch(onRejected: any): RSVP.Promise<{}>;
+    catch(onRejected: any): any;
     private handleError(error, plugin);
     private asyncTick(resolve, reject);
     private async();

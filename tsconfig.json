@@ -3,8 +3,12 @@
     "target": "es6",
     "declaration": true,
     "newLine": "LF",
-    "noResolve": true,
     "outDir": "build",
     "rootDir": "."
-  }
+  },
+  "files": [
+    "lib/plugin.ts",
+    "test/plugin.ts",
+    "typings/postcss/d.ts/postcss.d.ts"
+  ]
 }

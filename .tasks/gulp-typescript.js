@@ -4,17 +4,10 @@ import { merge } from 'event-stream';
 import ts from 'gulp-typescript';
 import { compilerOptions } from '../tsconfig';
 
-export default () => {
-	const libResult = gulp.src(
-			[
-				'typings/**/*.d.ts',
-				'typings/postcss/.d.ts',
-				'lib/**/*.ts',
-				'test/**/*.ts'
-			],
-			{ base: compilerOptions.rootDir })
-		.pipe(ts(compilerOptions));
+const project = ts.createProject('tsconfig.json');
 
+export default () => {
+	const libResult = project.src().pipe(ts(project));
 	return merge(
 		libResult.dts
 			.pipe(filter(['**', '!test/**']))

@@ -1,4 +1,4 @@
-﻿///<reference path="../../typings/postcss/.d.ts" />
+﻿///<reference path="../typings/postcss/.d.ts" />
 import postcss from 'postcss';
 
 const errorContext = {

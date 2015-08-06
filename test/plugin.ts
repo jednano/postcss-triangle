@@ -1,4 +1,4 @@
-﻿///<reference path="../../typings/tsd.d.ts" />
+﻿///<reference path="../typings/tsd.d.ts" />
 import { expect } from 'chai';
 import postcss from 'postcss';
 import plugin from '../lib/plugin';
