@@ -181,7 +181,7 @@ postcss([
 
 ```ts
 ///<reference path="node_modules/postcss-triangle/.d.ts" />
-import postcssTriangle = require('postcss-triangle');
+import postcssTriangle from 'postcss-triangle';
 
 postcss([
 	postcssTriangle(/* options */),

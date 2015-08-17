@@ -1,7 +1,7 @@
 ﻿///<reference path="../typings/tsd.d.ts" />
 import { expect } from 'chai';
 import postcss from 'postcss';
-import plugin from '../lib/plugin';
+import { PostCssTriangle, default as plugin } from '../lib/plugin';
 
 // ReSharper disable WrongExpressionStatement
 describe('postcss-triangle plugin', () => {
@@ -388,7 +388,7 @@ describe('postcss-triangle plugin', () => {
 	function check(
 		actual: string,
 		expected?: string|RegExp,
-		options: plugin.Options = {}
+		options?: PostCssTriangle.Options
 	) {
 		const processor = postcss().use(plugin(options));
 		if (expected instanceof RegExp) {
