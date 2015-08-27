@@ -96,7 +96,7 @@ Here's how you create one:
 
 ```css
 .right-isosceles-triangle {
-	triangle: right-iso down;
+	triangle: right-iso pointing-down;
 	width: 250px;
 	background-color: red;
 }
@@ -131,7 +131,7 @@ This triangle's angles are all the same (60&deg;). This means all sides are the 
 
 ```css
 .equilateral-triangle {
-	triangle: equilateral up;
+	triangle: equilateral pointing-up;
 	height: 100px;
 	background-color: red;
 }
