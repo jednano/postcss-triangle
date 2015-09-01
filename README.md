@@ -53,7 +53,7 @@ Now, on to the triangle types!
 
 <img src="https://github.com/jedmao/postcss-triangle/blob/master/images/isosceles-triangle.png?raw=true" alt="Isosceles Triangle (Default)" width="234" height="146" align="right">
 
-This is the default and the most standard triangle you will create. It has two angles the same and two sides the same. The triangle will fit snug inside the `width` and `height` box that you define. Here's how you create one:
+This is the default triangle type. It has two angles the same and two sides the same. The triangle will fit snug inside the `width` and `height` box that you define. Here's how you create one:
 
 ```css
 .isosceles-triangle {
