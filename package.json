@@ -1,6 +1,6 @@
 {
   "name": "postcss-triangle",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "PostCSS plugin to create a triangle.",
   "main": "dist/lib/plugin.js",
   "scripts": {
