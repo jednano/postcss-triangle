@@ -1,3 +1,6 @@
+## 1.0.1
+- Fix path in .d.ts file.
+
 ## 1.0.0
 - Supports PostCSS 5.x.
 
