@@ -43,6 +43,7 @@ Using this plugin, you can create three different types of triangles:
 ### Triangle types
 
 All triangle types have the following rules/caveats:
+- The `triangle` declaration must appear _before_ the `height` or `width` property (doing otherwise will result in a compilation error)
 - You must specify a direction (`pointing-up`, `pointing-down`, `pointing-left` or `pointing-right`).
 - You must provide a separate `background-color` declaration. This will transpile into a `border-color` in the opposite direction in which your triangle points. The `background-color` helps you forget about all that nonsense and just specify what _appears_ to be the background color, visually.
 - Unfortunately, there is no way to set a triangle's actual `border` at this time. I considered using the `::before` pseudo-class to achieve this; however, it had a defect that was cutting it in half and I gave up. Feel free to submit a pull request with this feature if you have a solution for it.
