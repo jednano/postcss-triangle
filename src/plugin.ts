@@ -28,23 +28,29 @@ const PostCssTriangle = postcss.plugin<PostCssTriangle.Options>(plugin, (options
 			rule.walkDecls('triangle', decl => {
 				isTriangle = true;
 
+				let wd: postcss.Declaration;
 				rule.walkDecls('width', d => {
-					width = parseLength(d.value);
-					d.value = '0';
-					d.moveBefore(decl);
+					wd = d;
 				});
 
-				if (!width) {
+				if (wd) {
+					width = parseLength(wd.value);
+					wd.value = '0';
+					wd.moveBefore(decl);
+				} else {
 					decl.cloneBefore({ prop: 'width', value: '0' });
 				}
 
+				let hd: postcss.Declaration;
 				rule.walkDecls('height', d => {
-					height = parseLength(d.value);
-					d.value = '0';
-					d.moveBefore(decl);
+					hd = d;
 				});
 
-				if (!height) {
+				if (hd) {
+					height = parseLength(hd.value);
+					hd.value = '0';
+					hd.moveBefore(decl);
+				} else {
 					decl.cloneBefore({ prop: 'height', value: '0' });
 				}
 
@@ -116,7 +122,7 @@ const PostCssTriangle = postcss.plugin<PostCssTriangle.Options>(plugin, (options
 					throw decl.error(
 						`Unsupported direction: ${direction}.`,
 						errorContext
-						);
+					);
 				}
 
 				decl.cloneBefore({
