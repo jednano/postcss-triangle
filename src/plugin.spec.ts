@@ -3,18 +3,14 @@ import * as postcss from 'postcss';
 
 import * as plugin from './plugin';
 
-test(
-	'throws when a triangle type of "bar" is defined',
-	macro,
+test('throws when a triangle type of "bar" is defined', macro,
 	`foo {
 		triangle: bar pointing-up;
 	}`,
 	/Unsupported type: bar/
 );
 
-test(
-	'throws when a direction of "bar" is defined',
-	macro,
+test('throws when a direction of "bar" is defined', macro,
 	`foo {
 		triangle: bar;
 		width: 100px;
@@ -24,9 +20,7 @@ test(
 );
 
 ['right-iso', 'equilateral'].forEach(triangleType => {
-	test(
-		`${triangleType} throws when a direction of "bar" is defined`,
-		macro,
+	test(`${triangleType} throws when a direction of "bar" is defined`, macro,
 		`foo {
 			triangle: ${triangleType} bar;
 			width: 100px;
@@ -35,9 +29,7 @@ test(
 	);
 });
 
-test(
-	'throws when a background-color declaration is not provided',
-	macro,
+test('throws when a background-color declaration is not provided', macro,
 	`foo {
 		triangle: pointing-right;
 		width: 100px;
@@ -87,9 +79,7 @@ test(
 	);
 });
 
-test(
-	'calculates with a precision of 5 by default',
-	macro,
+test('calculates with a precision of 5 by default', macro,
 	`foo {
 		triangle: pointing-up;
 		width: 40.2469134px;
@@ -138,9 +128,7 @@ test(
 	);
 });
 
-test(
-	'isosceles throws when a width declaration is not provided',
-	macro,
+test('isosceles throws when a width declaration is not provided', macro,
 	`foo {
 		triangle: pointing-up;
 		height: 100px;
@@ -148,9 +136,7 @@ test(
 	/Missing required width declaration/
 );
 
-test(
-	'isosceles throws when a height declaration is not provided',
-	macro,
+test('isosceles throws when a height declaration is not provided', macro,
 	`foo {
 		triangle: pointing-up;
 		width: 100px;
@@ -243,9 +229,7 @@ test(
 	/Missing required width or height declaration/
 );
 
-test(
-	'right-isosceles throws when both width and height are provided',
-	macro,
+test('right-isosceles throws when both width and height are provided', macro,
 	`foo {
 		triangle: right-iso pointing-up;
 		width: 100px;
@@ -254,7 +238,8 @@ test(
 	/right-iso triangle cannot have both width and height/
 );
 
-test('right-isosceles generates expected declarations for a triangle pointing up',
+test(
+	'right-isosceles generates expected declarations for a triangle pointing up',
 	macro,
 	`foo {
 		triangle: right-iso pointing-up;
@@ -271,7 +256,8 @@ test('right-isosceles generates expected declarations for a triangle pointing up
 	}`
 );
 
-test('right-isosceles generates expected declarations for a triangle pointing up',
+test(
+	'right-isosceles generates expected declarations for a triangle pointing up',
 	macro,
 	`foo {
 		triangle: right-iso pointing-up;
@@ -577,8 +563,7 @@ function macro(
 		processor.process(stripTabs(input)).css,
 		stripTabs(<string>expected)
 	);
-}
-
-function stripTabs(input: string) {
-	return input.replace(/\t/g, '');
+	function stripTabs(input: string) {
+		return input.replace(/\t/g, '');
+	}
 }
