@@ -212,6 +212,23 @@ test('isosceles: pointing right: generates expected declarations', macro,
 	}`
 );
 
+test('defining dimensions before triangle declaration is OK', macro,
+	`foo {
+		width: 100px;
+		height: 20px;
+		triangle: pointing-up;
+		background-color: red;
+	}`,
+	`foo {
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-color: transparent;
+		border-width: 0 50px 20px;
+		border-bottom-color: red;
+	}`
+);
+
 test('right-iso throws when width and height are both not provided', macro,
 	`foo {
 		triangle: right-iso pointing-up;
