@@ -1,7 +1,6 @@
 *.log
-.vs/
-build/**/*.js
-build/**/*.ts
+.nyc_output/
+.vscode/
 coverage/
 dist/
 node_modules/
