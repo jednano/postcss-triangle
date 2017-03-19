@@ -1,14 +1,21 @@
 ﻿{
 	"compilerOptions": {
+		"module": "commonjs",
+		"noImplicitAny": true,
 		"target": "es6",
 		"declaration": true,
 		"newLine": "LF",
-		"outDir": "build",
-		"rootDir": "."
+		"outDir": "dist",
+		"rootDir": "src",
+		"sourceMap": true,
+		"lib": [
+			"es2015"
+		]
 	},
-	"files": [
-		"lib/plugin.ts",
-		"test/plugin.ts",
-		"node_modules/postcss/d.ts/postcss.d.ts"
+	"include": [
+		"src/**/*.ts"
+	],
+	"exclude": [
+		"node_modules"
 	]
 }

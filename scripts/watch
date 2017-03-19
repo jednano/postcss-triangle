@@ -1,3 +1,0 @@
-#!/bin/bash
-
-./node_modules/.bin/gulp watch & sleep 4 && ./node_modules/.bin/_mocha --watch

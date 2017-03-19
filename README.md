@@ -6,8 +6,9 @@
 
 [![NPM version](http://img.shields.io/npm/v/postcss-triangle.svg?style=flat)](https://www.npmjs.org/package/postcss-triangle)
 [![npm license](http://img.shields.io/npm/l/postcss-triangle.svg?style=flat-square)](https://www.npmjs.org/package/postcss-triangle)
-[![Travis Build Status](https://img.shields.io/travis/jedmao/postcss-triangle.svg?label=unix)](https://travis-ci.org/jedmao/postcss-triangle)
-[![AppVeyor Build Status](https://img.shields.io/appveyor/ci/jedmao/postcss-triangle.svg?label=windows)](https://ci.appveyor.com/project/jedmao/postcss-triangle)
+[![Travis Build Status](https://img.shields.io/travis/jedmao/postcss-triangle.svg)](https://travis-ci.org/jedmao/postcss-triangle)
+[![codecov](https://codecov.io/gh/jedmao/postcss-triangle/branch/master/graph/badge.svg)](https://codecov.io/gh/jedmao/postcss-triangle)
+[![Dependency Status](https://gemnasium.com/badges/github.com/jedmao/postcss-triangle.svg)](https://gemnasium.com/github.com/jedmao/postcss-triangle)
 
 [![npm](https://nodei.co/npm/postcss-triangle.svg?downloads=true)](https://nodei.co/npm/postcss-triangle/)
 
@@ -172,22 +173,15 @@ $ npm install postcss-triangle
 ### JavaScript
 
 ```js
-postcss([
-	require('postcss-triangle')(/* options */),
-	// more plugins...
-])
+postcss([ require('postcss-triangle')(/* options */) ]);
 ```
 
 ### TypeScript
 
 ```ts
-///<reference path="node_modules/postcss-triangle/.d.ts" />
-import postcssTriangle from 'postcss-triangle';
+import * as postcssTriangle from 'postcss-triangle';
 
-postcss([
-	postcssTriangle(/* options */),
-	// more plugins...
-])
+postcss([ postcssTriangle(/* options */) ]);
 ```
 
 ## Options

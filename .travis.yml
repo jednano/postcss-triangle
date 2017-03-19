@@ -1,7 +1,12 @@
 language: node_js
 
 node_js:
-  - '0.12'
+  - "node"
+  - "6"
+
+after_success:
+  - npm install codecov
+  - npm run codecov
 
 notifications:
   email:

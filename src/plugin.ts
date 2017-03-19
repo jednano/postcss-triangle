@@ -1,10 +1,18 @@
-﻿///<reference path="../node_modules/postcss/postcss.d.ts" />
-import postcss from 'postcss';
+﻿import * as postcss from 'postcss';
 
 const plugin = 'postcss-triangle';
 const errorContext = { plugin };
 
-export default postcss.plugin<PostCssTriangle.Options>(plugin, (options = <any>{}) => {
+const oppositeDirectionMap: {
+	[index: string]: string;
+} = {
+	up: 'bottom',
+	right: 'left',
+	down: 'top',
+	left: 'right'
+};
+
+const PostCssTriangle = postcss.plugin<PostCssTriangle.Options>(plugin, (options = <any>{}) => {
 
 	if (typeof options.unitPrecision === 'undefined') {
 		options.unitPrecision = 5;
@@ -13,9 +21,9 @@ export default postcss.plugin<PostCssTriangle.Options>(plugin, (options = <any>{
 	return root => {
 		root.walkRules(rule => {
 			let isTriangle = false;
-			let width;
-			let height;
-			let direction;
+			let width: Length;
+			let height: Length;
+			let direction: string;
 
 			rule.walkDecls('triangle', decl => {
 				isTriangle = true;
@@ -126,12 +134,9 @@ export default postcss.plugin<PostCssTriangle.Options>(plugin, (options = <any>{
 			let isColorDefined = false;
 			rule.walkDecls('background-color', decl => {
 				isColorDefined = true;
-				const oppositeDirection = {
-					up: 'bottom',
-					right: 'left',
-					down: 'top',
-					left: 'right'
-				}[direction.split('-')[1]];
+				const oppositeDirection = oppositeDirectionMap[
+					direction.split('-')[1]
+				];
 				decl.prop = `border-${oppositeDirection}-color`;
 			});
 
@@ -144,11 +149,16 @@ export default postcss.plugin<PostCssTriangle.Options>(plugin, (options = <any>{
 		});
 	};
 
-	function sinDegrees(angle) {
+	function sinDegrees(angle: number) {
 		return Math.sin(angle / 180 * Math.PI);
 	}
 
-	function parseLength(length: string) {
+	interface Length {
+		value: number;
+		unit: string;
+	}
+
+	function parseLength(length: string): Length {
 		const value = parseFloat(length);
 		const [, unit] = length.match(/([a-z]+)$/);
 		return { value, unit };
@@ -175,16 +185,19 @@ export default postcss.plugin<PostCssTriangle.Options>(plugin, (options = <any>{
 		});
 		const w = stringifyLength(width);
 		const h = stringifyLength(height);
-		return {
+		const resultMap: {
+			[index: string]: string;
+		} = {
 			up: `0 ${hw} ${h}`,
 			right: `${hh} 0 ${hh} ${w}`,
 			down: `${h} ${hw} 0`,
 			left: `${hh} ${w} ${hh} 0`
-		}[direction.split('-')[1]];
+		};
+		return resultMap[direction.split('-')[1]];
 	}
 });
 
-export module PostCssTriangle {
+namespace PostCssTriangle {
 	export interface Options {
 		/**
 		 * Default: 5. When using `right-iso` or `equilateral` triangles,
@@ -201,3 +214,5 @@ export module PostCssTriangle {
 		unit: string;
 	}
 }
+
+export = PostCssTriangle;
