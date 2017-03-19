@@ -144,9 +144,7 @@ test('isosceles throws when a height declaration is not provided', macro,
 	/Missing required height declaration/
 );
 
-test(
-	'isosceles generates expected declarations for a triangle pointing up',
-	macro,
+test('isosceles, pointing up: generates expected declarations', macro,
 	`foo {
 		triangle: pointing-up;
 		width: 100px;
@@ -163,9 +161,7 @@ test(
 	}`
 );
 
-test(
-	'isosceles generates expected declarations for a triangle pointing down',
-	macro,
+test('isosceles, pointing down: generates expected declarations', macro,
 	`foo {
 		triangle: pointing-down;
 		width: 100px;
@@ -182,9 +178,7 @@ test(
 	}`
 );
 
-test(
-	'isosceles generates expected declarations for a triangle pointing left',
-	macro,
+test('isosceles, pointing left: generates expected declarations', macro,
 	`foo {
 		triangle: pointing-left;
 		width: 100px;
@@ -201,9 +195,7 @@ test(
 	}`
 );
 
-test(
-	'isosceles generates expected declarations for a triangle pointing right',
-	macro,
+test('isosceles: pointing right: generates expected declarations', macro,
 	`foo {
 		triangle: pointing-right;
 		width: 100px;
@@ -220,16 +212,14 @@ test(
 	}`
 );
 
-test(
-	'right-isosceles throws when width and height are both not provided',
-	macro,
+test('right-iso throws when width and height are both not provided', macro,
 	`foo {
 		triangle: right-iso pointing-up;
 	}`,
 	/Missing required width or height declaration/
 );
 
-test('right-isosceles throws when both width and height are provided', macro,
+test('right-iso throws when both width and height are provided', macro,
 	`foo {
 		triangle: right-iso pointing-up;
 		width: 100px;
@@ -238,162 +228,146 @@ test('right-isosceles throws when both width and height are provided', macro,
 	/right-iso triangle cannot have both width and height/
 );
 
-test(
-	'right-isosceles generates expected declarations for a triangle pointing up',
-	macro,
-	`foo {
-		triangle: right-iso pointing-up;
-		width: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 0 50px 50px;
-		border-bottom-color: red;
-	}`
-);
+test('right-iso, pointing up: generates expected declarations', t => {
+	macro(t,
+		`foo {
+			triangle: right-iso pointing-up;
+			width: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 0 50px 50px;
+			border-bottom-color: red;
+		}`
+	);
+	macro(t,
+		`foo {
+			triangle: right-iso pointing-up;
+			height: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 0 100px 100px;
+			border-bottom-color: red;
+		}`
+	);
+});
 
-test(
-	'right-isosceles generates expected declarations for a triangle pointing up',
-	macro,
-	`foo {
-		triangle: right-iso pointing-up;
-		height: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 0 100px 100px;
-		border-bottom-color: red;
-	}`
-);
+test('right-iso, pointing down: generates expected declarations', t => {
+	macro(t,
+		`foo {
+			triangle: right-iso pointing-down;
+			width: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 50px 50px 0;
+			border-top-color: red;
+		}`
+	);
+	macro(t,
+		`foo {
+			triangle: right-iso pointing-down;
+			height: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 100px 100px 0;
+			border-top-color: red;
+		}`
+	);
+});
 
-test(
-	'right-isosceles generates expected declarations for a triangle pointing down',
-	macro,
-	`foo {
-		triangle: right-iso pointing-down;
-		width: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 50px 50px 0;
-		border-top-color: red;
-	}`
-);
+test('right-iso, pointing left: generates expected declarations', t => {
+	macro(t,
+		`foo {
+			triangle: right-iso pointing-left;
+			width: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 100px 100px 100px 0;
+			border-right-color: red;
+		}`
+	);
+	macro(t,
+		`foo {
+			triangle: right-iso pointing-left;
+			height: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 50px 50px 50px 0;
+			border-right-color: red;
+		}`
+	);
+});
 
-test(
-	'right-isosceles generates expected declarations for a triangle pointing down',
-	macro,
-	`foo {
-		triangle: right-iso pointing-down;
-		height: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 100px 100px 0;
-		border-top-color: red;
-	}`
-);
+test('right-iso, pointing right: generates expected declarations', t => {
+	macro(t,
+		`foo {
+			triangle: right-iso pointing-right;
+			width: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 100px 0 100px 100px;
+			border-left-color: red;
+		}`
+	);
+	macro(t,
+		`foo {
+			triangle: right-iso pointing-right;
+			height: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 50px 0 50px 50px;
+			border-left-color: red;
+		}`
+	);
+});
 
-test(
-	'right-isosceles generates expected declarations for a triangle pointing left',
-	macro,
-	`foo {
-		triangle: right-iso pointing-left;
-		width: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 100px 100px 100px 0;
-		border-right-color: red;
-	}`
-);
-
-test(
-	'right-isosceles generates expected declarations for a triangle pointing left',
-	macro,
-	`foo {
-		triangle: right-iso pointing-left;
-		height: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 50px 50px 50px 0;
-		border-right-color: red;
-	}`
-);
-
-test(
-	'right-isosceles generates expected declarations for a triangle pointing right',
-	macro,
-	`foo {
-		triangle: right-iso pointing-right;
-		width: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 100px 0 100px 100px;
-		border-left-color: red;
-	}`
-);
-
-test(
-	'right-isosceles generates expected declarations for a triangle pointing right',
-	macro,
-	`foo {
-		triangle: right-iso pointing-right;
-		height: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 50px 0 50px 50px;
-		border-left-color: red;
-	}`
-);
-
-test(
-	'equilateral throws when width and height are both not provided',
-	macro,
+test('equilateral throws when width and height are both not provided', macro,
 	`foo {
 		triangle: equilateral pointing-up;
 	}`,
 	/Missing required width or height declaration/
 );
 
-test(
-	'equilateral throws when both width and height are provided',
-	macro,
+test('equilateral throws when both width and height are provided', macro,
 	`foo {
 		triangle: equilateral pointing-up;
 		width: 100px;
@@ -402,149 +376,137 @@ test(
 	/equilateral triangle cannot have both width and height/
 );
 
-test(
-	'equilateral generates expected declarations for a triangle pointing up',
-	macro,
-	`foo {
-		triangle: equilateral pointing-up;
-		width: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 0 50px 86.60254px;
-		border-bottom-color: red;
-	}`
-);
+test('equilateral, pointing up: generates expected declarations', t => {
+	macro(t,
+		`foo {
+			triangle: equilateral pointing-up;
+			width: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 0 50px 86.60254px;
+			border-bottom-color: red;
+		}`
+	);
+	macro(t,
+		`foo {
+			triangle: equilateral pointing-up;
+			height: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 0 57.73503px 100px;
+			border-bottom-color: red;
+		}`
+	);
+});
 
-test(
-	'equilateral generates expected declarations for a triangle pointing up',
-	macro,
-	`foo {
-		triangle: equilateral pointing-up;
-		height: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 0 57.73503px 100px;
-		border-bottom-color: red;
-	}`
-);
+test('equilateral, pointing down: generates expected declarations', t => {
+	macro(t,
+		`foo {
+			triangle: equilateral pointing-down;
+			width: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 86.60254px 50px 0;
+			border-top-color: red;
+		}`
+	);
+	macro(t,
+		`foo {
+			triangle: equilateral pointing-down;
+			height: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 100px 57.73503px 0;
+			border-top-color: red;
+		}`
+	);
+});
 
-test(
-	'equilateral generates expected declarations for a triangle pointing down',
-	macro,
-	`foo {
-		triangle: equilateral pointing-down;
-		width: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 86.60254px 50px 0;
-		border-top-color: red;
-	}`
-);
+test('equilateral, pointing left: generates expected declarations', t => {
+	macro(t,
+		`foo {
+			triangle: equilateral pointing-left;
+			width: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 57.73503px 100px 57.73503px 0;
+			border-right-color: red;
+		}`
+	);
+	macro(t,
+		`foo {
+			triangle: equilateral pointing-left;
+			height: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 50px 86.60254px 50px 0;
+			border-right-color: red;
+		}`
+	);
+});
 
-test(
-	'equilateral generates expected declarations for a triangle pointing down',
-	macro,
-	`foo {
-		triangle: equilateral pointing-down;
-		height: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 100px 57.73503px 0;
-		border-top-color: red;
-	}`
-);
-
-test(
-	'equilateral generates expected declarations for a triangle pointing left',
-	macro,
-	`foo {
-		triangle: equilateral pointing-left;
-		width: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 57.73503px 100px 57.73503px 0;
-		border-right-color: red;
-	}`
-);
-
-test(
-	'equilateral generates expected declarations for a triangle pointing left',
-	macro,
-	`foo {
-		triangle: equilateral pointing-left;
-		height: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 50px 86.60254px 50px 0;
-		border-right-color: red;
-	}`
-);
-
-test(
-	'equilateral generates expected declarations for a triangle pointing right',
-	macro,
-	`foo {
-		triangle: equilateral pointing-right;
-		width: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 57.73503px 0 57.73503px 100px;
-		border-left-color: red;
-	}`
-);
-
-test(
-	'equilateral generates expected declarations for a triangle pointing right',
-	macro,
-	`foo {
-		triangle: equilateral pointing-right;
-		height: 100px;
-		background-color: red;
-	}`,
-	`foo {
-		width: 0;
-		height: 0;
-		border-style: solid;
-		border-color: transparent;
-		border-width: 50px 0 50px 86.60254px;
-		border-left-color: red;
-	}`
-);
+test('equilateral, pointing right: generates expected declarations', t => {
+	macro(t,
+		`foo {
+			triangle: equilateral pointing-right;
+			width: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 57.73503px 0 57.73503px 100px;
+			border-left-color: red;
+		}`
+	);
+	macro(t,
+		`foo {
+			triangle: equilateral pointing-right;
+			height: 100px;
+			background-color: red;
+		}`,
+		`foo {
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-color: transparent;
+			border-width: 50px 0 50px 86.60254px;
+			border-left-color: red;
+		}`
+	);
+});
 
 function macro(
 	t: ContextualTestContext,
