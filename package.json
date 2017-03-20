@@ -12,9 +12,9 @@
     "prepublish": "npm test",
     "pretest": "npm run tslint && npm run clean && npm run compile",
     "test": "nyc ava",
-    "test:watch": "npm run watch",
+    "test:watch": "ava --watch",
     "tslint": "tslint --project tsconfig.json",
-    "watch": "ava --watch"
+    "watch": "npm run test:watch"
   },
   "ava": {
     "files": [
