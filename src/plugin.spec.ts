@@ -1,4 +1,4 @@
-﻿import test, { ContextualTestContext } from 'ava';
+﻿import test, { TestContext } from 'ava';
 import * as postcss from 'postcss';
 
 import * as plugin from './plugin';
@@ -526,7 +526,7 @@ test('equilateral, pointing right: generates expected declarations', t => {
 });
 
 function macro(
-	t: ContextualTestContext,
+	t: TestContext,
 	input: string,
 	expected?: string|RegExp,
 	options?: plugin.Options
