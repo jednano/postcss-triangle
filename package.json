@@ -7,10 +7,10 @@
   "scripts": {
     "clean": "rimraf coverage dist *.log",
     "codecov": "codecov -f coverage/lcov.info",
-    "compile": "tsc",
-    "compile:watch": "tsc --watch",
+    "build": "tsc",
+    "build:watch": "tsc --watch",
     "prepublish": "npm test",
-    "pretest": "npm run tslint && npm run clean && npm run compile",
+    "pretest": "npm run tslint && npm run clean && npm run build",
     "test": "nyc ava",
     "test:watch": "ava --watch",
     "tslint": "tslint --project tsconfig.json",
@@ -59,14 +59,14 @@
   },
   "homepage": "https://github.com/jedmao/postcss-triangle#readme",
   "dependencies": {
-    "postcss": "^5.2.16"
+    "postcss": "^6.0.14"
   },
   "devDependencies": {
-    "@types/node": "^7.0.8",
-    "ava": "^0.18.2",
-    "nyc": "^10.1.2",
-    "rimraf": "^2.6.1",
-    "tslint": "^4.5.1",
-    "typescript": "^2.2.1"
+    "@types/node": "^8.0.47",
+    "ava": "^0.23.0",
+    "nyc": "^11.3.0",
+    "rimraf": "^2.6.2",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.1"
   }
 }

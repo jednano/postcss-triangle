@@ -36,7 +36,7 @@ const PostCssTriangle = postcss.plugin<PostCssTriangle.Options>(plugin, (options
 				if (wd) {
 					width = parseLength(wd.value);
 					wd.value = '0';
-					wd.moveBefore(decl);
+					decl.before(wd.remove());
 				} else {
 					decl.cloneBefore({ prop: 'width', value: '0' });
 				}
@@ -49,7 +49,7 @@ const PostCssTriangle = postcss.plugin<PostCssTriangle.Options>(plugin, (options
 				if (hd) {
 					height = parseLength(hd.value);
 					hd.value = '0';
-					hd.moveBefore(decl);
+					decl.before(hd.remove());
 				} else {
 					decl.cloneBefore({ prop: 'height', value: '0' });
 				}

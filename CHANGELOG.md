@@ -1,3 +1,6 @@
+## 2.0.0
+- **Breaking:** Upgrade to PostCSS 6 (no longer works with PostCSS 5).
+
 ## 1.0.1
 - Fix path in .d.ts file.
 

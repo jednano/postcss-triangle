@@ -205,10 +205,16 @@ This will build scripts, run tests and generate a code coverage report. Anything
 
 ### Watching
 
-For much faster development cycles, run the following command:
+For much faster development cycles, run the following commands in 2 separate processes:
+
+```
+$ npm run build:watch
+```
+
+Compiles TypeScript source into the `./dist` folder and watches for changes.
 
 ```
 $ npm run watch
 ```
 
-This will build scripts, run tests and watch for changes.
+Runs the tests in the `./dist` folder and watches for changes.
